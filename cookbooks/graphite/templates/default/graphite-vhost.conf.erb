@@ -9,8 +9,8 @@ NameVirtualHost *:80
 <VirtualHost *:80>
   ServerName            graphite
   DocumentRoot          "<%= @web_dir %>/webapp"
-  ErrorLog              <%= @log_dir %>/webapp/error.log
-  CustomLog             <%= @log_dir %>/webapp/access.log common
+  ErrorLog              <%= @log_dir %>/error.log
+  CustomLog             <%= @log_dir %>/access.log common
 
   <Location "/">
     SetHandler          python-program
