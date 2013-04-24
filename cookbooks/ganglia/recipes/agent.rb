@@ -51,6 +51,7 @@ template "#{node[:ganglia][:conf_dir]}/gmond.conf" do
       :rcv_port  => node[:ganglia][:rcv_port ],
     })
   notifies      :restart, 'service[ganglia_agent]' if startable?(node[:ganglia][:agent])
+end
 
 runit_service "ganglia_agent" do
   run_state     node[:ganglia][:agent][:run_state]
