@@ -29,6 +29,12 @@ NameVirtualHost *:80
     SetHandler          None
   </Location>
 
+  <Location "/ganglia">
+    SetHandler          None
+  </Location>
+
+  Alias /ganglia "/usr/share/ganglia-webfrontend"
+
   # NOTE: In order for the django admin site media to work you
   # must change @DJANGO_ROOT@ to be the path to your django
   # installation, which is probably something like:
