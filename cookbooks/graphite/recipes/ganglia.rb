@@ -22,13 +22,13 @@
 include_recipe 'graphite'
 include_recipe 'ganglia'
 
-target = "#{node[:graphite][:data_dir]}/rrd/#{node[:ganglia][:cluster_name]}"
+target = "#{node[:graphite][:data_dir]}/rrd/#{node[:cluster_name]}"
 
 directory target do
   mode "755"
 end
 
-Dir.glob("#{node[:ganglia][:home_dir]}/rrds/#{node[:ganglia][:cluster_name]}/*.*").each do |path|
+Dir.glob("#{node[:ganglia][:home_dir]}/rrds/#{node[:cluster_name]}/*.*").each do |path|
   source = File.basename(path).gsub(".", "_")
   link "#{target}/#{source}" do
     to path
