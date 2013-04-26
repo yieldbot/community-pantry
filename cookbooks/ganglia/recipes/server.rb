@@ -37,6 +37,16 @@ standard_dirs('ganglia.server') do
   directories [:home_dir, :log_dir, :conf_dir, :pid_dir, :data_dir]
 end
 
+if node[:ganglia][:data_dir] != "#{node[:ganglia][:home_dir]}/rrds"
+  directory "#{node[:ganglia][:home_dir]}/rrds" do
+    recursive true
+    action :delete
+  end
+  link "#{node[:ganglia][:home_dir]}/rrds" do
+    to node[:ganglia][:data_dir]
+  end
+end
+
 kill_old_service('gmetad')
 kill_old_service('ganglia-monitor'){ pattern 'gmond' }
 
@@ -45,12 +55,7 @@ kill_old_service('ganglia-monitor'){ pattern 'gmond' }
 #
 
 monitor_groups = Hash.new{|h,k| h[k] = [] }
-discover_all(:ganglia, :agent).each do |svr|
-  monitor_groups[svr.name] << "#{svr.private_ip}:#{svr.node_info[:rcv_port]}"
-end
-
-# <%- servers.map{|svr| "#{svr[:private_ip]}:#{svr[:rcv_port]}" }.join(' ')  %>
-# <%- all_service_info("#{node[:cluster_name]}-ganglia_agent").each{|svr| monitor_groups[svr[:name]] << svr } %>
+monitor_groups[node[:cluster_name]] = [node[:ipaddress]]
 
 template "#{node[:ganglia][:conf_dir]}/gmetad.conf" do
   source        "gmetad.conf.erb"
