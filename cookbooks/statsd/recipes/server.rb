@@ -46,16 +46,11 @@ announce(:statsd, :server,
   :port => node[:statsd][:port])
 
 # FIXME: this interface could use some help
-begin
-  graphite_carbon = discover(:graphite, :carbon).info
-rescue StandardError => err
-  graphite_carbon = { :port => '2003', :addr => '127.0.0.1' }
-  Log.error("\n  !!!!\n  Could not find graphite carbon server. If it's on this machine, make sure its role preceded the statds server role.\n #{err}\n  !!!!")
-end
+graphite_host = discover(:graphite, :carbon).private_ip rescue '127.0.0.1'
 
 template "#{node[:statsd][:conf_dir]}/baseConfig.js" do
   source        "baseConfig.js.erb"
   mode          "0755"
-  variables     :statsd => node[:statsd], :graphite => graphite_carbon
+  variables     :statsd => node[:statsd], :graphite_host => graphite_host
   notifies      :restart, "service[statsd]", :delayed if startable?(node[:statsd])
 end
