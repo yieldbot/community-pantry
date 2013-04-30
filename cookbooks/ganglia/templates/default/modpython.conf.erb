@@ -1,0 +1,9 @@
+modules {
+  module {
+     name = "python_module"
+     path = "<%= @node['ganglia']['lib_dir'] %>/modpython.so"
+     params = "<%= @node['ganglia']['lib_dir'] %>/python_modules"
+  }
+}
+
+include("<%= @node['ganglia']['conf_dir'] %>/conf.d/*.pyconf")
