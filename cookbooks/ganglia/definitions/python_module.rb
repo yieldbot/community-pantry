@@ -1,5 +1,5 @@
 define :gmond_python_module, :module_type => nil, :template_cookbook => "ganglia", :variables => {} do
-  include_recipe "ganglia::client"
+  include_recipe "ganglia::agent"
   include_recipe "ganglia::python"
   
   module_name = params[:name]
