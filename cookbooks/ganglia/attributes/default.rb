@@ -10,6 +10,7 @@ default[:ganglia][:user]             = 'ganglia'
 default[:users ]['ganglia'][:uid]    = 320
 default[:groups]['ganglia'][:gid]    = 320
 
+default[:ganglia][:cluster_name]     = nil
 default[:ganglia][:send_port]        = 8649
 default[:ganglia][:rcv_port ]        = 8649
 
