@@ -1,6 +1,7 @@
 default[:ganglia][:home_dir]         = '/var/lib/ganglia'
 default[:ganglia][:conf_dir]         = '/etc/ganglia'
 default[:ganglia][:pid_dir]          = '/var/run/ganglia'
+default[:ganglia][:lib_dir]          = '/usr/lib/ganglia'
 default[:ganglia][:data_dir]         = "#{node[:ganglia][:home_dir]}/rrds"
 default[:ganglia][:agent ][:log_dir] = '/var/log/ganglia/agent'
 default[:ganglia][:server][:log_dir] = '/var/log/ganglia/server'
