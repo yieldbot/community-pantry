@@ -36,15 +36,13 @@ end
 
 kill_old_service('ganglia-monitor'){ pattern 'gmond' }
 
-send_realm = node[:ganglia][:cluster_name] || discovery_realm(:ganglia, :server)
-
 template "#{node[:ganglia][:conf_dir]}/gmond.conf" do
   source        "gmond.conf.erb"
   backup        false
   owner         "ganglia"
   group         "ganglia"
   mode          "0644"
-  send_addr = discover(:ganglia, :server, send_realm).private_ip rescue nil
+  send_addr = discover(:ganglia, :server).private_ip rescue nil
   variables(
     :cluster => {
       :name      => node[:cluster_name],
