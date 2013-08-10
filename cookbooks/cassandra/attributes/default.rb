@@ -51,14 +51,14 @@ default[:cassandra][:run_state]              = :start
 
 default[:cassandra][:listen_addr]            = "localhost"
 default[:cassandra][:seeds]                  = "127.0.0.1"
-default[:cassandra][:start_rpc]              = "true"
+default[:cassandra][:start_rpc]              = true
 default[:cassandra][:rpc_addr]               = "localhost"
 default[:cassandra][:rpc_port]               = 9160
-default[:cassandra][:rpc_keepalive]          = "true"
+default[:cassandra][:rpc_keepalive]          = true
 default[:cassandra][:rpc_server_type]        = "sync"
 default[:cassandra][:storage_port]           = 7000
 default[:cassandra][:ssl_storage_port]       = 7001
-default[:cassandra][:start_native_transport] = "true"
+default[:cassandra][:start_native_transport] = true
 default[:cassandra][:native_transport_port]  = 9042
 default[:cassandra][:jmx_dash_port]          = 12345         # moved from default of 8080 (conflicts with hadoop)
 default[:cassandra][:mx4j_addr]              = "127.0.0.1"
