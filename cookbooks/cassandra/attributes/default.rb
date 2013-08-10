@@ -139,6 +139,7 @@ default[:cassandra][:multithreaded_compaction]     = false
 default[:cassandra][:compaction_throughput_mb_per_sec] = 16
 default[:cassandra][:compaction_preheat_key_cache] = true
 default[:cassandra][:read_request_timeout_in_ms]   = 10000
+default[:cassandra][:cross_node_timeout]           = false
 default[:cassandra][:range_request_timeout_in_ms]  = 10000
 default[:cassandra][:write_request_timeout_in_ms]  = 10000
 default[:cassandra][:truncate_request_timeout_in_ms] = 60000
