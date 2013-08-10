@@ -156,6 +156,7 @@ default[:cassandra][:rpc_timeout_in_ms]            = 10000
 default[:cassandra][:request_scheduler]            = "org.apache.cassandra.scheduler.NoScheduler"
 default[:cassandra][:index_interval]               = 128
 default[:cassandra][:internode_compression]        = "all"
+default[:cassandra][:inter_dc_tcp_nodelay]         = true
 
 #
 # Machine tuning -- use the tuning cookbook to have this take effect
