@@ -32,14 +32,12 @@ node.set[:cassandra][:rpc_addr]    = private_ip_of(node)
 seed_ips = discover_all(:cassandra, :seed).sort_by{|s| s.node.name }.map{|s| s.node.ipaddress }.uniq
 # stabilize their order.
 seed_ips.sort!
-node.set[:cassandra][:seeds] = seed_ips
+node.set[:cassandra][:seeds] = seed_ips.join(",")
 
 # Pull the initial token from the node attributes if one is given
 if node[:cassandra][:initial_tokens] && (not node[:facet_index].nil?)
   node.set[:cassandra][:initial_token] = node[:cassandra][:initial_tokens][node[:facet_index].to_i]
 end
-# If there is an initial token, force auto_bootstrap to false.
-node.set[:cassandra][:auto_bootstrap] = false if node[:cassandra][:initial_token]
 
 template "#{node[:cassandra][:conf_dir]}/cassandra.yaml" do
   source        "cassandra.yaml.erb"
