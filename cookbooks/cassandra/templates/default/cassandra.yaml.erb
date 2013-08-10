@@ -505,7 +505,7 @@ request_timeout_in_ms: <%= @cassandra[:request_timeout_in_ms] %> # 10000
 #
 # Warning: before enabling this property make sure to ntp is installed
 # and the times are synchronized between the nodes.
-cross_node_timeout: <%= @cassandra[:coss_node_timeout] %> # false
+cross_node_timeout: <%= @cassandra[:cross_node_timeout] %> # false
 
 # Enable socket timeout for streaming operation.
 # When a timeout occurs during streaming, streaming is retried from the start
