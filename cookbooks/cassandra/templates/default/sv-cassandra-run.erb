@@ -1,6 +1,5 @@
 #!/bin/sh
 <%- @cassandra ||= @options %>
-export JAVA_HOME=/usr/lib/jvm/java-6-sun/jre
 export CASSANDRA_CONF=<%= @cassandra[:conf_dir] %>
 export CASSANDRA_HOME=<%= @cassandra[:home_dir] %>
 CASSANDRA_USER=<%= @cassandra[:user] %>
@@ -12,9 +11,6 @@ for jar in $CASSANDRA_HOME/lib/*.jar; do
 done
 
 source ${CASSANDRA_HOME}/conf/cassandra-env.sh
-
-JMX_PORT=<%= @cassandra[:jmx_dash_port] %>
-JMX_ADDR=<%= Ironfan::NodeUtils.private_ip_of(node) %>
 
 # bump number of open files allowed way way up
 ulimit -n 65535
