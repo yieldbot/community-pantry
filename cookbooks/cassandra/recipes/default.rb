@@ -38,5 +38,6 @@ end
 
 standard_dirs('cassandra') do
   directories   [:conf_dir, :log_dir, :lib_dir, :pid_dir, :data_dirs, :commitlog_dir, :saved_caches_dir]
+  user          'cassandra'
   group         'root'
 end
