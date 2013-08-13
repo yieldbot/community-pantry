@@ -146,7 +146,7 @@ fi
 # Specifies the default port over which Cassandra will be available for
 # JMX connections.
 JMX_PORT=<%= @cassandra[:jmx_dash_port] %>
-JMX_ADDR=<%= Ironfan::NodeUtils.public_hostname_of(node) %>
+JMX_ADDR=<%= @node[:fqdn] %>
 
 # Here we create the arguments that will get passed to the jvm when
 # starting cassandra.
