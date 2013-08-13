@@ -131,8 +131,8 @@ esac
 # times. If in doubt, and if you do not particularly want to tweak, go with
 # 100 MB per physical CPU core.
 
-#MAX_HEAP_SIZE="4G"
-#HEAP_NEWSIZE="800M"
+MAX_HEAP_SIZE=<%= @cassandra[:java_heap_size_max] %>
+HEAP_NEWSIZE=<%= @cassandra[:java_heap_new_size] %>
 
 if [ "x$MAX_HEAP_SIZE" = "x" ] && [ "x$HEAP_NEWSIZE" = "x" ]; then
     calculate_heap_sizes
@@ -146,7 +146,7 @@ fi
 # Specifies the default port over which Cassandra will be available for
 # JMX connections.
 JMX_PORT=<%= @cassandra[:jmx_dash_port] %>
-JMX_ADDR=<%= Ironfan::NodeUtils.private_ip_of(node) %>
+JMX_ADDR=<%= Ironfan::NodeUtils.public_ip_of(node) %>
 
 
 # Here we create the arguments that will get passed to the jvm when

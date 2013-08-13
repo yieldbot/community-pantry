@@ -111,6 +111,7 @@ default[:cassandra][:max_hints_delivery_threads]    = 2
 
 default[:cassandra][:java_heap_size_min]           = "128M"        # consider setting equal to max_heap in production
 default[:cassandra][:java_heap_size_max]           = "1650M"
+default[:cassandra][:java_heap_new_size]           = "400M"
 default[:cassandra][:java_heap_size_eden]          = "1500M"
 default[:cassandra][:disk_failure_policy]          = "stop"
 default[:cassandra][:key_cache_size_in_mb]         = ""
