@@ -10,8 +10,6 @@ for jar in $CASSANDRA_HOME/lib/*.jar; do
     CLASSPATH=$CLASSPATH:$jar
 done
 
-source ${CASSANDRA_HOME}/conf/cassandra-env.sh
-
 # bump number of open files allowed way way up
 ulimit -n 65535
 # allow cassandra to lock itself into memory if JNA is installed
