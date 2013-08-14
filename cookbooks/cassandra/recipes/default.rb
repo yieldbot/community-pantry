@@ -41,14 +41,14 @@ standard_dirs('cassandra') do
   group         'root'
 end
 
-directory "#{node[:cassandra][:commitlog_dir]}" do
+directory node[:cassandra][:commitlog_dir] do
   action        :create
   mode          0755
   owner         node[:cassandra][:user]
   group         node[:cassandra][:group]
 end
 
-directory "#{node[:cassandra][:saved_caches_dir]}" do
+directory node[:cassandra][:saved_caches_dir] do
   action        :create
   mode          0755
   owner         node[:cassandra][:user]
