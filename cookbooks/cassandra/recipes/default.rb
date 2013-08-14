@@ -52,5 +52,5 @@ directory "#{node[:cassandra][:saved_caches_dir]}" do
   action        :create
   mode          0755
   owner         node[:cassandra][:user]
-  group         mode[:cassandra][:group]
+  group         node[:cassandra][:group]
 end
