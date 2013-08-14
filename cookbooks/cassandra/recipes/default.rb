@@ -37,6 +37,16 @@ end
 # == Directories
 
 standard_dirs('cassandra') do
-  directories   [:conf_dir, :log_dir, :lib_dir, :pid_dir, :data_dirs, :commitlog_dir, :saved_caches_dir]
+  directories   [:conf_dir, :log_dir, :lib_dir, :pid_dir, :data_dirs]
   group         'root'
+end
+
+extra_dir('cassandra.commitlog_dir') do
+  user          :user
+  group         :group
+end
+
+extra_dir('cassandra.saved_caches_dir') do
+  user          :user
+  group         :group
 end
