@@ -15,7 +15,5 @@ ulimit -n 65535
 # allow cassandra to lock itself into memory if JNA is installed
 ulimit -l unlimited
 
-echo $JVM_OPTS
-
 exec chpst -u${CASSANDRA_USER} -e /etc/sv/cassandra/env -o 65535 \
 ${CASSANDRA_HOME}/bin/cassandra -f
