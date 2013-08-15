@@ -234,6 +234,12 @@ JVM_OPTS="$JVM_OPTS -XX:GCLogFileSize=10M"
 # comment out this entry to enable IPv6 support).
 JVM_OPTS="$JVM_OPTS -Djava.net.preferIPv4Stack=true"
 
+<%- if @cassandra[:enable_mx4j] %>
+# MX4J
+JVM_OPTS="$JVM_OPTS -Dmx4jaddress=<%= @cassandra[:mx4j_addr] %>"
+JVM_OPTS="$JVM_OPTS -Dmx4jport=<%= @cassandra[:mx4j_port] %>"
+<%- end %>
+
 # jmx: metrics and administration interface
 # 
 # add this if you're having trouble connecting:

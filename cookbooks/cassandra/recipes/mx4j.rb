@@ -42,4 +42,4 @@ link "#{node[:cassandra][:home_dir]}/lib/mx4j-tools.jar" do
 end
 
 # FIXME: How to conditionally set this after the jarfile link has been  put in place?
-node[:cassandra][:enable_mx4j] = true
+node.set[:cassandra][:enable_mx4j] = true
