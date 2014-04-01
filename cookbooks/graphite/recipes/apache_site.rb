@@ -6,7 +6,7 @@ if node[:graphite][:dashboard][:enable_ssl]
   devops_secrets node[:graphite][:dashboard][:ssl_certificate] do
     data_bag      node[:graphite][:dashboard][:ssl_data_bag]
     item          node[:graphite][:dashboard][:ssl_data_bag_item]
-    key           'key'
+    key           'cert'
     owner         'root'
     group         'root'
     mode          0644
