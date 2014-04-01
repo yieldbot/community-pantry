@@ -38,5 +38,6 @@ default[:graphite][:dashboard][:release_url_checksum] = "f54bf784139c7aef441f5cc
 default[:graphite][:dashboard][:enable_ssl]           = false
 default[:graphite][:dashboard][:ssl_certificate]      = '/etc/apache2/ssl/ssl.crt'
 default[:graphite][:dashboard][:ssl_key]              = '/etc/apache2/ssl/ssl.key'
+default[:graphite][:dashboard][:ssl_ca]              = '/etc/apache2/ssl/ca.crt'
 default[:graphite][:dashboard][:ssl_data_bag]         = ''
 default[:graphite][:dashboard][:ssl_data_bag_item]    = ''

@@ -15,10 +15,11 @@ NameVirtualHost *:443
   CustomLog             <%= @log_dir %>/ssl-access.log common
 
   SSLEngine on
-  SSLCipherSuite        ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP
-  SSLCertificateFile    <%= @ssl_certificate %>
-  SSLCertificateKeyFile <%= @ssl_key %>
-
+  SSLCipherSuite          ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP
+  SSLCertificateFile      <%= @ssl_certificate %>
+  SSLCertificateKeyFile   <%= @ssl_key %>
+  SSLCertificateChainFile <%= @ssl_ca %>
+  
   <Location "/">
     SetHandler          python-program
     PythonPath          "['<%= @web_dir %>/webapp'] + sys.path"

@@ -6,7 +6,7 @@ if node[:graphite][:dashboard][:enable_ssl]
   devops_secrets node[:graphite][:dashboard][:ssl_certificate] do
     data_bag      node[:graphite][:dashboard][:ssl_data_bag]
     item          node[:graphite][:dashboard][:ssl_data_bag_item]
-    key           'combined'
+    key           'key'
     owner         'root'
     group         'root'
     mode          0644
@@ -21,6 +21,15 @@ if node[:graphite][:dashboard][:enable_ssl]
     mode          0644
   end
 
+  devops_secrets node[:graphite][:dashboard][:ssl_ca] do
+    data_bag      node[:graphite][:dashboard][:ssl_data_bag]
+    item          node[:graphite][:dashboard][:ssl_data_bag_item]
+    key           'ca'
+    owner         'root'
+    group         'root'
+    mode          0644
+  end
+
   template "#{node[:apache][:dir]}/sites-available/graphite-ssl.conf" do
     mode          0644
     variables(    
@@ -28,7 +37,8 @@ if node[:graphite][:dashboard][:enable_ssl]
       :log_dir          => node[:graphite][:dashboard][:log_dir],
       :enable_ssl       => node[:graphite][:dashboard][:enable_ssl],
       :ssl_certificate  => node[:graphite][:dashboard][:ssl_certificate],
-      :ssl_key          => node[:graphite][:dashboard][:ssl_key]
+      :ssl_key          => node[:graphite][:dashboard][:ssl_key],
+      :ssl_ca           => node[:graphite][:dashboard][:ssl_ca]
     )
     source        "graphite-vhost-ssl.conf.erb"
   end
