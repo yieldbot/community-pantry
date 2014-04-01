@@ -12,6 +12,7 @@ depends          "runit"
 depends          "ganglia"
 depends          "install_from"
 depends          "silverware"
+depends          "devops_secrets"
 
 recipe           "graphite::carbon",                   "Carbon"
 recipe           "graphite::default",                  "Base configuration for graphite"
