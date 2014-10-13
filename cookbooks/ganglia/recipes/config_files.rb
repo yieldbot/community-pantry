@@ -47,7 +47,7 @@ template "#{node[:ganglia][:conf_dir]}/gmond.conf" do
   owner         "ganglia"
   group         "ganglia"
   mode          "0644"
-  send_addr = discover(:ganglia, :server).private_ip rescue nil
+  send_addr = discover(:ganglia, :server).private_hostname rescue nil
   variables(
     :cluster => {
       :name      => node[:cluster_name],
