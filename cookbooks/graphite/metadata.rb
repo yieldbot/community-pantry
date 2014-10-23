@@ -8,7 +8,7 @@ description      "Installs/Configures graphite"
 
 depends          "python"
 depends          "apache2"
-depends          "runit"
+depends 'runit', '~> 0.14.0'
 depends          "ganglia"
 depends          "install_from"
 depends          "silverware"

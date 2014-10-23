@@ -6,7 +6,7 @@ version          IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 
 description      "Installs/Configures resque"
 
-depends          "runit"
+depends 'runit', '~> 0.14.0'
 depends          "redis"
 
 recipe           "resque::default",                    "Base configuration for resque"

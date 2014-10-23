@@ -8,7 +8,7 @@ description      "Cassandra: a massively scalable high-performance distributed s
 
 depends          "java"
 depends          "apt"
-depends          "runit"
+depends 'runit', '~> 0.14.0'
 depends          "thrift"
 depends          "iptables"
 depends          "volumes"

@@ -7,7 +7,7 @@ version          IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 description      "Ganglia: a distributed high-performance monitoring system"
 
 depends          "java"
-depends          "runit"
+depends 'runit', '~> 0.14.0'
 depends          "volumes"
 depends          "silverware"
 

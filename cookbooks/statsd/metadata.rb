@@ -6,7 +6,7 @@ version          IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
 
 description      "Statsd, a non-blocking proxy to graphite: counting and timing for great justice"
 
-depends          "runit"
+depends 'runit', '~> 0.14.0'
 depends          "nodejs"
 depends          "graphite"
 depends          "silverware"
